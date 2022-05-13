@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { tap } from 'rxjs';
+import { StudentenService } from './core/studenten.service';
+import { Student } from './shared/model/student.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'H6_Oefening';
+  students: Student[];
+
+  constructor(private studentService: StudentenService){}
+
+  ngOnInit(){
+    this.studentService.getStudents().subscribe(students => this.students = students)
+  }
 }

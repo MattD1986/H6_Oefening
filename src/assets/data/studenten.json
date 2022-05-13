@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Matt",
+        "email": "r001@student.vives.be"
+    },
+    {
+        "id": 2,
+        "name": "Lisa",
+        "email": "r002@student.vives.be"
+    },
+    {
+        "id": 3,
+        "name": "Blayze",
+        "email": "r003@student.vives.be"
+    }
+]
