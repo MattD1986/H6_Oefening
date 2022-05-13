@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Overzicht Studenten</h1>
   <ul class = "list-group">
-    <li class = "list-group-item" *ngFor="let student of students">
+    <!-- toevoeging async-operatie aan de view -->
+    <li class = "list-group-item" *ngFor="let student of students$ |async">
       {{student.id}} - {{student.name}} - {{student.email}} 
     </li>
   </ul>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable, tap } from 'rxjs';
 import { StudentenService } from './core/studenten.service';
 import { Student } from './shared/model/student.model';
 
@@ -9,12 +9,12 @@ import { Student } from './shared/model/student.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  students: Student[];
+export class AppComponent implements OnInit{
+  students$: Observable<Student[]>;
 
   constructor(private studentService: StudentenService){}
 
   ngOnInit(){
-    this.studentService.getStudents().subscribe(students => this.students = students)
+    this.students$ = this.studentService.getStudents();
   }
 }
